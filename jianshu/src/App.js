@@ -1,11 +1,14 @@
 import React from 'react';
-import {GlobalStyled} from './style.js';
 import Header from './common/header';
+import {GlobalStyled} from './style.js';
+import { IconFontStyled } from './statics/iconfont/iconfont';
 
 function App() {
   return (
     <div>
       <Header/>
+      <GlobalStyled/>
+      <IconFontStyled/>
     </div>
   );
 }
