@@ -10,17 +10,18 @@ import store from './store';
 
 function App() {
   return (
-    <div>
-      <Provider store={store}>
-	      <Header/>
-	      <BrowserRouter>
-	      	 <Route path='/' exact  component={Home}></Route>
-	      	 <Route path='/detail' exact component={Detail}></Route>
-	      </BrowserRouter>
-	      <GlobalStyled/>
-	      <IconFontStyled/>
-	  </Provider>
-    </div>
+    
+    <Provider store={store}>
+	    <div>
+		    <Header/>
+		    <BrowserRouter>
+		      	 <Route path='/' exact  component={Home}></Route>
+		      	 <Route path='/detail' exact component={Detail}></Route>
+		    </BrowserRouter>
+		    <GlobalStyled/>
+		    <IconFontStyled/>
+		</div>
+	</Provider>
   );
 }
 
