@@ -31,4 +31,5 @@ class Detail extends Component {
 const mapState = (state) => ({
 	list: state.getIn(['home','articleList'])
 })
+
 export default connect(mapState,null)(Detail);
