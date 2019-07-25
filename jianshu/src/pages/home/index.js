@@ -1,8 +1,10 @@
 import React , { Component } from 'react';
 import List from './components/List';
+import { connect } from 'react-redux';
 import Recommend from './components/Recommend';
 import Topic from './components/Topic';
 import Writer from './components/Writer';
+import axios from 'axios';
 
 import { 
 	HomeWrapper,
@@ -29,6 +31,30 @@ class Home extends Component {
 			</HomeWrapper>
 		)
 	}
+
+	componentDidMount() {
+		axios.get('api/home.json').then((res) => {
+			const result = res.data.data;
+			const action = {
+				type: 'change_home_data',
+				topicList: result.topicList,
+				articleList: result.articleList,
+				recommendList: result.recommendList
+			}
+			this.props.changeHomeData(action);
+
+		}).catch((e) => {
+			console.log(e);
+		})
+	}
 }
 
-export default Home;
+const mapDispatch = (dispacth) => ({
+	changeHomeData(action) {
+		dispacth(action);
+	}
+})
+
+export default connect(null,mapDispatch)(Home);
+
+

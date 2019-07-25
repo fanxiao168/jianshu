@@ -1,48 +1,19 @@
 import { fromJS } from 'immutable';
 
 const defaultState = fromJS({
-	topicList: [{
-		id: 1,
-		title: '社会热点',
-		imgUrl: 'https://upload.jianshu.io/users/upload_avatars/4790772/388e473c-fe2f-40e0-9301-e357ae8f1b41.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp'
-	},{
-		id: 2,
-		title: '流量测试',
-		imgUrl: 'https://upload.jianshu.io/users/upload_avatars/4790772/388e473c-fe2f-40e0-9301-e357ae8f1b41.jpeg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp'
-	}],
-	articleList:[{
-		id: 1,
-		title: '经常出汗的人，最终会这样（建议永久收藏）',
-		desc: '夏天，我们都恨不得天天躲在“空调房”里享受夏日的凉快，但这导致了夏天本该是出汗的季节，你却出不了汗！甚至还有一些人，出门时涂上止汗露等产品，以防...',
-		imgUrl: 'https://upload-images.jianshu.io/upload_images/17889107-0db4eed5dd929e34?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-	},{
-		id: 2,
-		title: '经常出汗的人，最终会这样（建议永久收藏）',
-		desc: '夏天，我们都恨不得天天躲在“空调房”里享受夏日的凉快，但这导致了夏天本该是出汗的季节，你却出不了汗！甚至还有一些人，出门时涂上止汗露等产品，以防...',
-		imgUrl: 'https://upload-images.jianshu.io/upload_images/17889107-0db4eed5dd929e34?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-	},{
-		id: 3,
-		title: '经常出汗的人，最终会这样（建议永久收藏）',
-		desc: '夏天，我们都恨不得天天躲在“空调房”里享受夏日的凉快，但这导致了夏天本该是出汗的季节，你却出不了汗！甚至还有一些人，出门时涂上止汗露等产品，以防...',
-		imgUrl: 'https://upload-images.jianshu.io/upload_images/17889107-0db4eed5dd929e34?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-	},{
-		id: 4,
-		title: '经常出汗的人，最终会这样（建议永久收藏）',
-		desc: '夏天，我们都恨不得天天躲在“空调房”里享受夏日的凉快，但这导致了夏天本该是出汗的季节，你却出不了汗！甚至还有一些人，出门时涂上止汗露等产品，以防...',
-		imgUrl: 'https://upload-images.jianshu.io/upload_images/17889107-0db4eed5dd929e34?imageMogr2/auto-orient/strip|imageView2/1/w/360/h/240'
-	}],
-	recommendList:[{
-		id: 1,
-		imgUrl:'https://cdn2.jianshu.io/assets/web/banner-s-club-aa8bdf19f8cf729a759da42e4a96f366.png'
-	},
-	{
-		id: 2,
-		imgUrl:'https://cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'
-	}]
+	topicList: [],
+	articleList:[],
+	recommendList:[]
 });
 
 export default (state = defaultState , action ) => {
 	switch(action.type) {
+		case 'change_home_data':
+		 	return	state.merge({
+						topicList:fromJS(action.topicList),
+						articleList:fromJS(action.articleList),
+						recommendList:fromJS(action.recommendList)
+					})
 		default:
 			return state;
 	}
