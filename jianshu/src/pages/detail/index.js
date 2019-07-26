@@ -18,7 +18,9 @@ class Detail extends Component {
 	}
 
 	componentDidMount () {
-		this.props.getDetail();
+		var strArr = this.props.location.search.split('=');
+		var id = strArr.slice(1);
+		this.props.getDetail(id);
 	}
 }
 
@@ -28,8 +30,8 @@ const mapState = (state) => ({
 });
 
 const mapDispatch = (dispatch) => ({
-	getDetail() {
-		dispatch(actionCreators.getDetail());
+	getDetail(id) {
+		dispatch(actionCreators.getDetail(id));
 	}
 })
 

@@ -65,7 +65,6 @@ const mapDispatch = (dispacth) => ({
 	},
 
 	changeScrollTopShow() {
-		console.log(document.documentElement.scrollTop);
 		if (document.documentElement.scrollTop > 400) {
 			dispacth(actionCreators.toggleTopShow(true));
 		}else{
