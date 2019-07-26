@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const HomeWrapper = styled.div`
+	z-index: 0;
 	overflow: hidden;
 	width: 960px;
 	margin: 0 auto;
